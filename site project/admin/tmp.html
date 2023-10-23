@@ -1,0 +1,69 @@
+<div data-collapse="small" data-animation="default" data-duration="5" data-easing="ease-in" data-easing2="ease" data-doc-height="1" role="banner" class="nav-bar w-nav"></div>
+<div class="section black-gradient wf-section">
+    <div class="container w-container">
+        <h1>Demande De Materiel</h1>
+        <p><italic>Signaler L'intendant du Groupe à votre Demande de Materiel du Local du Groupe</italic></p>
+    </div>
+</div>
+    <div class="wf-section">
+        <div class="container-5 w-container">
+            <div class="form-block-2 w-form">
+                <form id="wf-form-material-form" name="wf-form-material-form" data-name="material form" method="post" action="mailto:groupestemoura@gmail.com" enctype="text/plain" class="form-4">
+                    <label for="name of maitrise">Nom Du Membre de la maitrise</label>
+                    <input type="text" class="w-input" maxlength="50" id="nom-maitrise" name="Nom maitrise" data-name="nom maitrise" required=""> 
+                    <label for="nature-de-l-activite">Nature de l'activite</label>
+                    <select id="nature-de-l-activite" name="nature-de-l-activite" data-name="nature de l'activite" class="w-select" required="">
+                        <option value="reunion">réunion</option>
+                        <option value="conseil">conseil </option>
+                        <option value="journee">journée</option>
+                        <option value="camp">camps d'unité</option>
+                        <option value="sortie">sortie </option>
+                    </select>
+                    <label for="date">Date</label>
+                    <input type="date" class="w-input" name="date" data-name="date" id="date" required=""/>
+                    <label for="nature-du-materiel">Nature du Materiel</label>
+                    <p class="paragraph-2">
+                        <em>Formater le materiel requis comme montré </em>
+                    </p>
+                    <textarea placeholder="*Ficel 4m  *Assiettes x5  *tente x4 ..." maxlength="5000" id="nature-du-materiel-2" name="nature-du-materiel" data-name="nature du materiel" required="" class="w-input"></textarea>
+                    <label for="end-Time">End-date</label>
+                    <p class="paragraph-2">
+                        <em>End date est le temps au bout du quel vous retournerez le materiel au local</em>
+                    </p>
+                    <input type="date" class="w-input" name="end-Time" data-name="end Time" placeholder="ex.4:30 pm" id="end-Time" required=""/>
+                    
+                    <input type="submit" onclick="SubForm()" value="Submit" data-wait="Please wait..." class="w-button"/>
+                </form>
+                <div class="w-form-done">
+                    <div>
+                        Votre demande est envoyée à l&#x27;intendant du groupe!<br/>
+                        <em>Attendez-vous à sa réponse bientôt.</em>
+                    </div>
+                </div>
+                <div class="w-form-fail">
+                    <div>Oops! Quelque chose s'est mal passé lors de la soumission du formulaire.</div>
+                </div>
+                 <script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<script>
+    function SubForm (){
+        $.ajax({
+            url:'https://api.apispreadsheets.com/data/gNBQKR0jcgQf57UH/',
+            type:'post',
+            data:$("#wf-form-material-form").serializeArray(),
+            success: function(){
+              alert("FORMULAIRE ENVOYÉ AVEC SUCCÈS!")
+            },
+            error: function(){
+              alert("Oops! Quelque chose s'est mal passé lors de la soumission du formulaire!")
+            }
+        });
+        location.href = "C:/Users/UsEr/Desktop/site project/admin/demande-materiel.html";
+    }
+    </script>
+            </div>
+        </div>
+    </div>
+</div>
